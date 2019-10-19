@@ -13,10 +13,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/tv_item_employee_image"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:layout_centerVertical="true"
         tools:src="@android:color/darker_gray" />
 
     <LinearLayout
@@ -45,11 +46,19 @@
             tools:text="@string/employee_eligibility" />
 
         <TextView
-            android:id="@+id/tv_item_employee_quota"
+            android:id="@+id/tv_item_employee_nearestpendingrequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            tools:text="@string/employee_quota" />
+            tools:text="@string/employee_nearestrequestdate" />
+
+        <TextView
+            android:id="@+id/tv_item_employee_pendingrequestamount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="@string/employee_pendingrequestamount" />
     </LinearLayout>
 </RelativeLayout>

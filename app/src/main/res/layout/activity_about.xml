@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightYellow">
-
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:weightSum="100">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
         android:orientation="vertical"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="60"
         tools:ignore="UselessParent">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -36,17 +39,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_dev_name_short"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:maxLines="2"
-            android:text="@string/dev_name_short"
-            android:textColor="@color/darkRed"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/tv_dsp_contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,15 +58,24 @@
             android:text="@string/dev_email"
             android:textColor="@color/darkRed"
             android:textSize="19sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="60"
+        android:background="@drawable/semi_circle_yellow"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="4.0"
+            android:weightSum="6"
             tools:ignore="UselessParent">
 
             <ImageView
@@ -83,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:maxWidth="55dp"
-                android:maxHeight="55dp"
+                android:maxWidth="63dp"
+                android:maxHeight="63dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_mail"
                 tools:ignore="ContentDescription" />
@@ -95,20 +96,29 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:maxWidth="55dp"
-                android:maxHeight="55dp"
+                android:maxWidth="63dp"
+                android:maxHeight="63dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_facebook"
                 tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="6"
+            tools:ignore="UselessParent">
 
             <ImageView
                 android:id="@+id/iv_ic_github"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:adjustViewBounds="true"
-                android:maxWidth="55dp"
-                android:maxHeight="55dp"
+                android:maxWidth="63dp"
+                android:maxHeight="63dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_github"
                 tools:ignore="ContentDescription" />
@@ -117,10 +127,10 @@
                 android:id="@+id/iv_ic_map"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:adjustViewBounds="true"
-                android:maxWidth="55dp"
-                android:maxHeight="55dp"
+                android:maxWidth="63dp"
+                android:maxHeight="63dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_map"
                 tools:ignore="ContentDescription" />

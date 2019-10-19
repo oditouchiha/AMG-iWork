@@ -2,7 +2,8 @@
     <string name="app_name">AMGiWork</string>
     <string name="employee_name">Employee Name</string>
     <string name="employee_eligibility">Employee Eligibility</string>
-    <string name="employee_quota">Quota: x Day(s) until y</string>
+    <string name="employee_nearestrequestdate">Nearest Request : Friday, 18-10-2019</string>
+    <string name="employee_pendingrequestamount">Pending Request : 5</string>
     <string name="employees">Employees</string>
     <string name="about">About</string>
 
