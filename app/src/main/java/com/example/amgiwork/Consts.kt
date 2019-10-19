@@ -1,0 +1,46 @@
+package com.example.amgiwork
+
+object Consts {
+
+    const val ELIGIBILITY_ELIGIBLE_ID = 1
+    const val ELIGIBILITY_ELIGIBLE_TEXT = "Eligible"
+    const val ELIGIBILITY_ELIGIBLE_QUOTA = 2
+    const val ELIGIBILITY_ELIGIBLE_PERWEEK = 1
+
+    private val ELIGIBILITY_ELIGIBLE = mapOf(
+        "ID" to ELIGIBILITY_ELIGIBLE_ID,
+        "TEXT" to ELIGIBILITY_ELIGIBLE_TEXT,
+        "QUOTA" to ELIGIBILITY_ELIGIBLE_QUOTA,
+        "PERWEEK" to ELIGIBILITY_ELIGIBLE_PERWEEK
+    )
+
+    const val ELIGIBILITY_SEMI_ID = 2
+    const val ELIGIBILITY_SEMI_TEXT = "Semi-Eligible"
+    const val ELIGIBILITY_SEMI_QUOTA = 1
+    const val ELIGIBILITY_SEMI_PERWEEK = 2
+
+    private val ELIGIBILITY_SEMI = mapOf(
+        "ID" to ELIGIBILITY_SEMI_ID,
+        "TEXT" to ELIGIBILITY_SEMI_TEXT,
+        "QUOTA" to ELIGIBILITY_SEMI_QUOTA,
+        "PERWEEK" to ELIGIBILITY_SEMI_PERWEEK
+    )
+
+    const val ELIGIBILITY_NON_ID = 3
+    const val ELIGIBILITY_NON_TEXT = "Non-Eligible"
+    const val ELIGIBILITY_NON_QUOTA = 0
+    const val ELIGIBILITY_NON_PERWEEK = 0
+
+    private val ELIGIBILITY_NON = mapOf(
+        "ID" to ELIGIBILITY_NON_ID,
+        "TEXT" to ELIGIBILITY_NON_TEXT,
+        "QUOTA" to ELIGIBILITY_NON_QUOTA,
+        "PERWEEK" to ELIGIBILITY_NON_PERWEEK
+    )
+
+    val ELIGIBILITY = mapOf(
+        ELIGIBILITY_ELIGIBLE_ID to ELIGIBILITY_ELIGIBLE,
+        ELIGIBILITY_SEMI_ID to ELIGIBILITY_SEMI,
+        ELIGIBILITY_NON_ID to ELIGIBILITY_NON
+    )
+}

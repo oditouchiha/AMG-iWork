@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightYellow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/tv_dev_image"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:layout_gravity="center"
+            android:src="@drawable/dev"
+            app:civ_border_color="@color/darkRed"
+            app:civ_border_width="5dp" />
+
+        <TextView
+            android:id="@+id/tv_dev_name_long"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/dev_name_long"
+            android:textColor="@color/darkRed"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_dev_name_short"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/dev_name_short"
+            android:textColor="@color/darkRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_dsp_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/dsp_contact"
+            android:textColor="@color/darkRed"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/tv_dev_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/dev_email"
+            android:textColor="@color/darkRed"
+            android:textSize="19sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4.0"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/iv_ic_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:maxWidth="55dp"
+                android:maxHeight="55dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_mail"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_ic_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:maxWidth="55dp"
+                android:maxHeight="55dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_facebook"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_ic_github"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:maxWidth="55dp"
+                android:maxHeight="55dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_github"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_ic_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:maxWidth="55dp"
+                android:maxHeight="55dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_map"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
