@@ -15,6 +15,8 @@ import com.bumptech.glide.request.RequestOptions
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.abs
+
 
 class ListEmployeeAdapter(private val listEmployee: ArrayList<Employee>) :
     RecyclerView.Adapter<ListEmployeeAdapter.ListViewHolder>() {
@@ -45,17 +47,34 @@ class ListEmployeeAdapter(private val listEmployee: ArrayList<Employee>) :
             return week == targetWeek && year == targetYear
         }
 
-        fun _stringToDate(strdate: String): Date {
-            val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-            try {
-                return format.parse(strdate)!!
-            } catch (e: ParseException) {
-                e.printStackTrace()
+        fun _getNearestDate(dates: List<Date>): Date? {
+            val currentCalendar = Calendar.getInstance()
+            currentCalendar.set(Calendar.MONTH, currentCalendar.get(Calendar.MONTH) + 1)
+            val currentmillis = currentCalendar.timeInMillis
+
+            return Collections.min(dates) { d1, d2 ->
+                val diff1 = abs(d1.time - currentmillis)
+                val diff2 = abs(d2.time - currentmillis)
+
+                diff1.compareTo(diff2)
             }
-            return format.parse("1995-12-18")!!
+        }
+
+        fun _stringsToDate(strdates: List<String>): MutableList<Date> {
+            val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+            val dates = mutableListOf<Date>()
+            for (strdate in strdates) {
+                try {
+                    dates.add(format.parse(strdate)!!)
+                } catch (e: ParseException) {
+                    e.printStackTrace()
+                }
+            }
+            return dates
         }
 
         val employee = listEmployee[position]
+
         Glide.with(holder.itemView.context)
             .load(employee.photo)
             .apply(RequestOptions().override(55, 55))
@@ -67,11 +86,14 @@ class ListEmployeeAdapter(private val listEmployee: ArrayList<Employee>) :
         holder.tvEligibility.text =
             eligibility?.get("TEXT")?.toString() ?: holder.tvEligibility.text
 
+        val nearestRequestDate = _getNearestDate(_stringsToDate(employee.pendingRequests))
+        val nearestRequestDateFormatted =
+            SimpleDateFormat("EEEE, yyyy-MM-dd", Locale.getDefault()).format(nearestRequestDate!!)
         val nearestRequestDateColor: Int = when {
-            _isDateInCurrentWeek(_stringToDate(employee.nearestPendingRequest)) -> Color.RED
+            _isDateInCurrentWeek(nearestRequestDate) -> Color.RED
             else -> Color.parseColor("#006400")
         }
-        val nearestRequestDateText = "Nearest Request : ${employee.nearestPendingRequest}"
+        val nearestRequestDateText = "Nearest Request : \n$nearestRequestDateFormatted"
         val nearestRequestDateSpannedText = SpannableString(nearestRequestDateText)
         nearestRequestDateSpannedText.setSpan(
             ForegroundColorSpan(nearestRequestDateColor),
@@ -81,7 +103,7 @@ class ListEmployeeAdapter(private val listEmployee: ArrayList<Employee>) :
         )
         holder.tvNearestPendingRequest.text = nearestRequestDateSpannedText
 
-        val pendingRequestAmountText = "Pending Request : ${employee.pendingRequestAmount}"
+        val pendingRequestAmountText = "Pending Requests : ${employee.pendingRequests.size}"
         holder.tvPendingRequestAmount.text = pendingRequestAmountText
     }
 
