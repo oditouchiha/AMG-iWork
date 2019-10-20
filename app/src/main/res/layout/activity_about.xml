@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     android:weightSum="100">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_greenhouse" />
+
     <LinearLayout
+        android:id="@+id/ll_about_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_about_2"
+        android:layout_alignParentTop="true"
         android:layout_gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="25dp"
         android:layout_weight="60"
+        android:orientation="vertical"
         tools:ignore="UselessParent">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -47,6 +56,8 @@
             android:maxLines="2"
             android:text="@string/dsp_contact"
             android:textColor="@color/darkRed"
+            style="@style/shadoweffect"
+            android:shadowDy="1"
             android:textSize="19sp" />
 
         <TextView
@@ -57,12 +68,16 @@
             android:maxLines="2"
             android:text="@string/dev_email"
             android:textColor="@color/darkRed"
+            style="@style/shadoweffect"
             android:textSize="19sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_about_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="20dp"
         android:layout_weight="60"
         android:background="@drawable/semi_circle_yellow"
         android:orientation="vertical">
@@ -136,4 +151,4 @@
                 tools:ignore="ContentDescription" />
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

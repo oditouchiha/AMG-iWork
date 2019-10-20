@@ -36,10 +36,12 @@ class ListEmployeeAdapter(private val listEmployee: ArrayList<Employee>) :
             val currentCalendar = Calendar.getInstance()
             val week = currentCalendar.get(Calendar.WEEK_OF_YEAR)
             val year = currentCalendar.get(Calendar.YEAR)
+
             val targetCalendar = Calendar.getInstance()
             targetCalendar.time = date
             val targetWeek = targetCalendar.get(Calendar.WEEK_OF_YEAR)
             val targetYear = targetCalendar.get(Calendar.YEAR)
+
             return week == targetWeek && year == targetYear
         }
 
@@ -74,10 +76,10 @@ class ListEmployeeAdapter(private val listEmployee: ArrayList<Employee>) :
         nearestRequestDateSpannedText.setSpan(
             ForegroundColorSpan(nearestRequestDateColor),
             16,
-            nearestRequestDateText.length - 1,
+            nearestRequestDateText.length,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
-        holder.tvNearestPendingRequest.text = nearestRequestDateText
+        holder.tvNearestPendingRequest.text = nearestRequestDateSpannedText
 
         val pendingRequestAmountText = "Pending Request : ${employee.pendingRequestAmount}"
         holder.tvPendingRequestAmount.text = pendingRequestAmountText
