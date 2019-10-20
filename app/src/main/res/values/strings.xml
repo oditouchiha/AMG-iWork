@@ -3,7 +3,7 @@
     <string name="employee_name">Employee Name</string>
     <string name="employee_eligibility">Employee Eligibility</string>
     <string name="employee_nearestrequestdate">Nearest Request : Friday, 18-10-2019</string>
-    <string name="employee_pendingrequestamount">Pending Request : 5</string>
+    <string name="employee_pendingrequestamount">Pending Requests : 5</string>
     <string name="employees">Employees</string>
     <string name="about">About</string>
 
@@ -12,4 +12,5 @@
     <string name="dsp_contact">Contact :</string>
     <string name="dev_email">dyaksa.hanindito@indosatooredoo.com</string>
     <string name="dev_name_short">(Dito)</string>
+    <string name="employee_approvedrequestamount">Approved Requests : 20</string>
 </resources>

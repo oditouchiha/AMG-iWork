@@ -45,7 +45,7 @@ object EmployeeData {
 
     // PENDING REQUEST
 
-    private val eligiblePendingRequests = listOf(
+    private val eligiblePendingRequests = arrayListOf(
         "2019-10-02",
         "2019-10-04",
         "2019-10-07",
@@ -56,7 +56,7 @@ object EmployeeData {
         "2019-10-25"
     )
 
-    private val semiEligiblePendingRequests = listOf(
+    private val semiEligiblePendingRequests = arrayListOf(
         "2019-10-01",
         "2019-10-14",
         "2019-10-28"
@@ -77,7 +77,7 @@ object EmployeeData {
 
     // APPROVED REQUEST
 
-    private val eligibleApprovedRequests = listOf(
+    private val eligibleApprovedRequests = arrayListOf(
         "2019-09-02",
         "2019-09-06",
         "2019-09-09",
@@ -88,7 +88,7 @@ object EmployeeData {
         "2019-09-27"
     )
 
-    private val semiEligibleApprovedRequests = listOf(
+    private val semiEligibleApprovedRequests = arrayListOf(
         "2019-09-02",
         "2019-09-16",
         "2019-09-30"
@@ -113,12 +113,13 @@ object EmployeeData {
         get() {
             val list = arrayListOf<Employee>()
             for (position in employeeNames.indices) {
-                val hero = Employee()
-                hero.name = employeeNames[position]
-                hero.eligibility = employeeEligibilities[position] as Int
-                hero.photo = employeeImages[position]
-                hero.pendingRequests = employeePendingRequests[position]
-                hero.approvedRequests = employeeApprovedRequests[position]
+                val hero = Employee(
+                    employeeNames[position],
+                    employeeEligibilities[position] as Int,
+                    employeePendingRequests[position],
+                    employeeApprovedRequests[position],
+                    employeeImages[position]
+                )
                 list.add(hero)
             }
             return list

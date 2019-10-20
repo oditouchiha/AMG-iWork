@@ -1,12 +1,14 @@
 package com.example.amgiwork
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Employee(
-    var name: String = "TEMPLATE",
-    var eligibility: Int = 999,
-
-    var pendingRequests: List<String> = listOf(""),
-    var approvedRequests: List<String> = listOf(""),
-
-    var photo: Int = 999
-)
+    var name: String,
+    var eligibility: Int,
+    var pendingRequests: ArrayList<String>,
+    var approvedRequests: ArrayList<String>,
+    var photo: Int
+) : Parcelable
 

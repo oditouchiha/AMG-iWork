@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,10 +25,25 @@ class MainActivity : AppCompatActivity() {
         showRecyclerList()
     }
 
+    private fun showSelectedEmployee(employee: Employee) {
+        Toast.makeText(this, "Kamu memilih " + employee.name, Toast.LENGTH_SHORT).show()
+
+        val moveIntent = Intent(this@MainActivity, EmployeeDetailActivity::class.java)
+        moveIntent.putExtra(EmployeeDetailActivity.EXTRA_EMPLOYEE, employee)
+        startActivity(moveIntent)
+    }
+
     private fun showRecyclerList() {
         rvEmployees.layoutManager = LinearLayoutManager(this)
-        val listHeroAdapter = ListEmployeeAdapter(list)
-        rvEmployees.adapter = listHeroAdapter
+        val listEmployeeAdapter = ListEmployeeAdapter(list)
+        rvEmployees.adapter = listEmployeeAdapter
+
+        listEmployeeAdapter.setOnItemClickCallback(object :
+            ListEmployeeAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Employee) {
+                showSelectedEmployee(data)
+            }
+        })
     }
 
     private fun showAboutActivity() {
