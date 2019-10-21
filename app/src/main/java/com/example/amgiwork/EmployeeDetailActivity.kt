@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_employee_detail.*
 
 
 class EmployeeDetailActivity : AppCompatActivity() {
-    private lateinit var mAboutDataListener: OnAboutDataReceivedListener
+    private lateinit var mListeners: ArrayList<DataUpdateListener>
     private lateinit var employee: Employee
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,18 +18,28 @@ class EmployeeDetailActivity : AppCompatActivity() {
         viewpager_employee_detail.adapter = MyPagerAdapter(supportFragmentManager)
         tablayout_employee_detail.setupWithViewPager(viewpager_employee_detail)
 
-        mAboutDataListener.onDataReceived(this.employee)
     }
 
-    fun setAboutDataListener(listener: OnAboutDataReceivedListener) {
-        this.mAboutDataListener = listener
+    fun registerDataUpdateListener(listener: DataUpdateListener) {
+        this.mListeners.add(listener)
+    }
+
+    fun unregisterDataUpdateListener(listener: DataUpdateListener) {
+        this.mListeners.remove(listener)
+    }
+
+    @Synchronized
+    fun dataUpdated() {
+        for (listener in mListeners) {
+            listener.onDataUpdate(this.employee)
+        }
     }
 
     companion object {
         const val EXTRA_EMPLOYEE = "extra_employee"
     }
 
-    interface OnAboutDataReceivedListener {
-        fun onDataReceived(employee: Employee)
+    interface DataUpdateListener {
+        fun onDataUpdate(employee: Employee)
     }
 }
