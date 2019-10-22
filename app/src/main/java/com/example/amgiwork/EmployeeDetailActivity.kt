@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_employee_detail.*
 
 
 class EmployeeDetailActivity : AppCompatActivity() {
-    private lateinit var mListeners: ArrayList<DataUpdateListener>
+    private var mListeners = ArrayList<DataUpdateListener>()
     private lateinit var employee: Employee
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class EmployeeDetailActivity : AppCompatActivity() {
 
     @Synchronized
     fun dataUpdated() {
-        for (listener in mListeners) {
+        for (listener in this.mListeners) {
             listener.onDataUpdate(this.employee)
         }
     }

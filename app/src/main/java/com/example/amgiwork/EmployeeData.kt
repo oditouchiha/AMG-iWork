@@ -79,10 +79,8 @@ object EmployeeData {
 
     private val eligibleApprovedRequests = arrayListOf(
         "2019-09-02",
-        "2019-09-06",
         "2019-09-09",
         "2019-09-13",
-        "2019-09-16",
         "2019-09-20",
         "2019-09-23",
         "2019-09-27"
